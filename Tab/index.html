@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tap选项卡组件</title>
+	<style type="text/css">
+		/* 选项卡样式 */
+		.tabNav a.active{
+			color:red;
+		}
+		.tapCon p{
+			display:none;
+		}
+		.tapCon p.active{
+			display:block;
+		}
+		/* 选项卡样式 */
+	</style>
+</head>
+<body>
+	<!-- 基本选项卡 S-->
+	<div class="tabNav" id="tabNav">
+		<a href="javascript:void(0);">1</a>
+		<a href="javascript:void(0);">2</a>
+		<a href="javascript:void(0);">3</a>
+	</div>
+	<div class="tapCon" id="tapCon">
+		<p>11111111111111基本选项卡</p>
+		<p>2222222222222基本选项卡</p>
+		<p>33333333333333基本选项卡</p>
+	</div>
+	<!-- 基本选项卡 E-->
+
+	<!-- 带自动播放的选项卡 S-->
+	<div class="tabNav" id="tabNav1">
+		<a href="javascript:void(0);">1</a>
+		<a href="javascript:void(0);">2</a>
+		<a href="javascript:void(0);">3</a>
+	</div>
+	<div class="tapCon" id="tapCon1">
+		<p>11111111111111带自动播放的选项卡</p>
+		<p>2222222222222带自动播放的选项卡</p>
+		<p>33333333333333带自动播放的选项卡</p>
+	</div>
+	<!-- 带自动播放的选项卡 E-->
+
+	<!-- 带回调的选项卡 S-->
+	<div class="tabNav" id="tabNav2">
+		<a href="javascript:void(0);">1</a>
+		<a href="javascript:void(0);">2</a>
+		<a href="javascript:void(0);">3</a>
+	</div>
+	<div class="tapCon" id="tapCon2">
+		<p>11111111111111带回调的选项卡</p>
+		<p>2222222222222带回调的选项卡</p>
+		<p>33333333333333带回调的选项卡</p>
+	</div>
+	<!-- 带回调的选项卡 E-->
+
+	<!-- 修改切换事件的选项卡 S-->
+	<div class="tabNav" id="tabNav3">
+		<a href="javascript:void(0);">1</a>
+		<a href="javascript:void(0);">2</a>
+		<a href="javascript:void(0);">3</a>
+	</div>
+	<div class="tapCon" id="tapCon3">
+		<p>11111111111111修改切换事件为鼠标移入的选项卡</p>
+		<p>2222222222222修改切换事件为鼠标移入的选项卡</p>
+		<p>33333333333333修改切换事件为鼠标移入的选项卡</p>
+	</div>
+	<!-- 修改切换事件的选项卡 E-->
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="Tab.js"></script>
+	<script type="text/javascript">
+		//基本选项卡
+		new Tab('tabNav','tapCon');
+		//带自动播放的选项卡
+		new Tab('tabNav1','tapCon1',{'autoPlayTime':3000});
+		//带切换回调的选项卡
+		new Tab('tabNav2','tapCon2',{'tapCallback':function(obj,index){
+			//obj是一个对象存储了选项卡导航与内容块
+			// {
+		 	//    'tapNavList':this.tapNavList,
+		 	//    'tapConList':this.tapConList
+		 	//  }
+			console.log(obj);
+			alert("切换回调"+index);
+		}});
+		//修改切换事件为mouseover的选项卡
+		new Tab('tabNav3','tapCon3',{'eventType':'mouseover'});
+
+	</script>
+</body>
+</html>
