@@ -4,4 +4,4 @@
 
 OpacityCarousel.js是组件源码
 
-OpacityCarousel.png是组件的图示说明(暂缺，后补上)，在使用的时候直接看图即可，免得翻源码，呵呵
+OpacityCarousel.png是组件的图示说明，在使用的时候直接看图即可，免得翻源码，呵呵

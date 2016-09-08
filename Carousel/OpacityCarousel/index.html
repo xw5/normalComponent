@@ -69,18 +69,19 @@
 </head>
 <body>
 	<h3>基本轮播</h3>
+
 	<!-- 基本轮播 S-->
 	<div class="carouse-list" id="carouseList">
 
 		<!-- 主内容 S-->
 		<a href="javascript:void(0);" title="前" class="active" carouse-list>
-			<img src="images/a.jpg" height="320" width="640">
+			<img src="../images/a.jpg" height="320" width="640">
 		</a>
 		<a href="javascript:void(0);" title="端" carouse-list>
-			<img src="images/b.jpg" height="320" width="640">
+			<img src="../images/b.jpg" height="320" width="640">
 		</a>
 		<a href="javascript:void(0);" title="？" carouse-list>
-			<img src="images/c.jpg" height="320" width="640">
+			<img src="../images/c.jpg" height="320" width="640">
 		</a>
 		<!-- 主内容 E-->
 
@@ -90,19 +91,49 @@
 		<!-- 控制按钮 E-->
 
 		<!-- 索引导航 S-->
-		<div class="carouse-nav" carouse-nav>
-			<a href="javascript:void(0);" class="active">1</a>
-			<a href="javascript:void(0);">2</a>
-			<a href="javascript:void(0);">3</a>
-		</div>
+		<div class="carouse-nav" carouse-nav></div>
 		<!-- 索引导航 S-->
 	</div>
 	<!-- 基本轮播 E-->
-	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	
+	<h3>自定义轮播(左右控制按钮状态修改,导航移入切换)</h3>
+	<!-- 自定义轮播 S-->
+	<div class="carouse-list" id="carouseList0">
+
+		<!-- 主内容 S-->
+		<a href="javascript:void(0);" title="前" class="active" carouse-list>
+			<img src="../images/a.jpg" height="320" width="640">
+		</a>
+		<a href="javascript:void(0);" title="端" carouse-list>
+			<img src="../images/b.jpg" height="320" width="640">
+		</a>
+		<a href="javascript:void(0);" title="？" carouse-list>
+			<img src="../images/c.jpg" height="320" width="640">
+		</a>
+		<!-- 主内容 E-->
+
+		<!-- 控制按钮 S-->
+		<a href="javascript:void(0);" title="上一张" class="carouse-per" carouse-ctrl>上一张</a>
+		<a href="javascript:void(0);" title="下一张" class="carouse-next" carouse-ctrl>下一张</a>
+		<!-- 控制按钮 E-->
+
+		<!-- 索引导航 S-->
+		<div class="carouse-nav" carouse-nav></div>
+		<!-- 索引导航 S-->
+	</div>
+	<!-- 自定义轮播 E-->
+
+	<script type="text/javascript" src="../jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="OpacityCarousel.js"></script>
 	<script type="text/javascript">
 		//基本轮播
 		new OpacityCarousel('carouseList');
+
+		//基本轮播
+		new OpacityCarousel('carouseList0',{
+			'carouselCtrlChange':true,
+			'carouselEvent':'mouseover'
+		})
 	</script>
 </body>
 </html>

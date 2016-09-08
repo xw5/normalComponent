@@ -13,7 +13,9 @@
       'speedTime':500,//切换速度
       'highlightClass':"active",//导航默认高亮样式
       'carouselCtrl':true,//是否有左右切换按钮
+      'carouselCtrlChange':false,//是否需要做左右控制按钮是显示隐藏切换
       'carouseCallBack':null,//默认回调为空
+      'carouselEvent':'click',//导航触发播放事件类型
       'carouseNavText':[]//导航要显示的文本
     }
     this.setting=$.extend(this.setting,options)
@@ -25,7 +27,9 @@
     }
     this.initfn();
     this.adevent();
-    this.autoplay();//自动轮播
+    if(this.setting.delayTime>0){
+      this.autoplay();//自动轮播
+    }
   }
   //组件初始化
   OpacityCarousel.prototype.initfn=function(){
@@ -39,6 +43,7 @@
     }
     this.carouselNav.html(navStr);
     this.carouselList.css({"display":"none","opacity":0}).eq(this.nowIndex).css({"display":"block","opacity":1});
+    this.toggleCtrl(false);
   }
   //图片切换功能实现
   OpacityCarousel.prototype.playfn=function(index){//根据是否传入了index来判断是用户点击的，还是自动切换的
@@ -73,11 +78,14 @@
     //当用户想去操作或者点击的时候停止自动切换，准备接受用户响应
     this.carouselCon.on("mouseenter",function(){
       clearInterval(This.carouseTimer);
+      This.toggleCtrl(true);
     })
     this.carouselCon.on("mouseleave",function(){
+      This.toggleCtrl(false);
       This.autoplay();
     })
-    this.carouselNav.on("click","span",function(){
+    //轮播导航交互
+    this.carouselNav.on(this.setting.carouselEvent,"a",function(e){
       This.playfn($(this).index());
     })
     if(this.setting.carouselCtrl){//实现左右按钮的切换效果
@@ -87,7 +95,6 @@
         if(clickindex<0){
           clickindex=This.carouselList.length-1;
         }
-        console.log(clickindex);
         This.playfn(clickindex);
       })
       this.carouselCtrl.eq(1).on("click",function(){//下一张
@@ -96,18 +103,20 @@
         if(clickindex>=This.carouselList.length){
           clickindex=0;
         }
-        console.log(clickindex);
         This.playfn(clickindex);
       })
     }
   }
   //自动播放方法
   OpacityCarousel.prototype.autoplay=function(){
-    if(this.setting.delayTime<=0){
-      return;
-    }
     var This=this;
     clearInterval(this.carouseTimer);
     this.carouseTimer=setInterval(function(){This.playfn()},this.setting.delayTime);
+  }
+  //左右控制按钮效果
+  OpacityCarousel.prototype.toggleCtrl=function(isShow){
+    if(this.setting.carouselCtrlChange && this.carouselCtrl){
+      isShow ? this.carouselCtrl.animate({'opacity':1},400) : this.carouselCtrl.animate({'opacity':0},400);
+    }
   }
 /***************透明度切换组件 e***************/
