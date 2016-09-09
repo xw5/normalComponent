@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚播列表组件</title>
+	<style type="text/css">
+		/* 轮播样式 */
+		*{
+			padding:0;
+			margin:0;
+		}
+		ul,li{
+			list-style:none;
+		}
+		h3{margin:10px 0;}
+		.carouse-list{
+			width:640px;
+			height:320px;
+			overflow:hidden;
+			position:relative;
+		}
+		.carouse-list-con{
+			width:9999px;
+			position:absolute;
+			top:0;
+			left:0;
+		}
+		.carouse-list-con li{
+			width:640px;
+			height:320px;
+			float:left;
+		}
+		.carouse-per,.carouse-next{
+			width:100px;
+			height:40px;
+			position:absolute;
+			top:50%;
+			margin-top:-20px;
+			line-height:40px;
+			text-align:center;
+			background:#999;
+			color:#000;
+			text-decoration:none;
+		}
+		.carouse-per{
+			left:0;
+		}
+		.carouse-next{
+			right:0;
+		}
+		.carouse-per:hover,.carouse-next:hover{
+			color:#fff;
+		}
+		.carouse-nav{
+			width:100%;
+			text-align:center;
+			position:absolute;
+			bottom:5px;
+			left:0;
+			height:20px;
+			font-size:0;
+		}
+		.carouse-nav a{
+			width:50px;
+			height:20px;
+			font-size:12px;
+			margin-left:5px;
+			background:#999;
+			color:#333;
+			text-decoration:none;
+			display:inline-block;
+			*zoom:1;
+		}
+		.carouse-nav a.active{
+			background:#fff;
+		}
+		/* 轮播样式 */
+	</style>
+</head>
+<body>
+	<h3>基本轮播</h3>
+
+	<!-- 基本滚动轮播 S-->
+	<div class="carouse-list" id="carouseList">
+
+		<!-- 主内容 S-->
+		<ul class="carouse-list-con" carouse-list>
+			<li><a href="javascript:void(0);"><img src="../images/a.jpg" height="320" width="640"></a></li>
+			<li><a href="javascript:void(0);"><img src="../images/b.jpg" height="320" width="640"></a></li>
+			<li><a href="javascript:void(0);"><img src="../images/c.jpg" height="320" width="640"></a></li>
+		</ul>
+		<!-- 主内容 E-->
+
+		<!-- 控制按钮 S-->
+		<a href="javascript:void(0);" title="上一张" class="carouse-per" carouse-ctrl>上一张</a>
+		<a href="javascript:void(0);" title="下一张" class="carouse-next" carouse-ctrl>下一张</a>
+		<!-- 控制按钮 E-->
+
+		<!-- 索引导航 S-->
+		<div class="carouse-nav" carouse-nav>
+			<a href="javascript:void(0);"></a>
+			<a href="javascript:void(0);"></a>
+			<a href="javascript:void(0);"></a>
+		</div>
+		<!-- 索引导航 S-->
+	</div>
+	<!-- 基本滚动轮播 E-->
+	
+	<h3>基本轮播</h3>
+
+	<!-- 带用户自定义滚动轮播 S-->
+	<div class="carouse-list" id="carouseList0">
+
+		<!-- 主内容 S-->
+		<ul class="carouse-list-con" carouse-list>
+			<li><a href="javascript:void(0);"><img src="../images/a.jpg" height="320" width="640"></a></li>
+			<li><a href="javascript:void(0);"><img src="../images/b.jpg" height="320" width="640"></a></li>
+			<li><a href="javascript:void(0);"><img src="../images/c.jpg" height="320" width="640"></a></li>
+		</ul>
+		<!-- 主内容 E-->
+
+		<!-- 控制按钮 S-->
+		<a href="javascript:void(0);" title="上一张" class="carouse-per" carouse-ctrl>上一张</a>
+		<a href="javascript:void(0);" title="下一张" class="carouse-next" carouse-ctrl>下一张</a>
+		<!-- 控制按钮 E-->
+
+		<!-- 索引导航 S-->
+		<div class="carouse-nav" carouse-nav>
+			<a href="javascript:void(0);"></a>
+			<a href="javascript:void(0);"></a>
+			<a href="javascript:void(0);"></a>
+		</div>
+		<!-- 索引导航 S-->
+	</div>
+	<!-- 带用户自定义滚动轮播 E-->
+
+	<script type="text/javascript" src="../jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="MoveCarousel.js"></script>
+	<script type="text/javascript">
+		//基本滚动轮播
+		new MoveCarousel('carouseList');
+
+		//带用户自定义滚动轮播(切换按钮可显示与隐藏,上下滚动)
+		new MoveCarousel('carouseList0',{
+			'direction':'top',
+			'carouselCtrlChange':true
+		});
+	</script>
+</body>
+</html>
