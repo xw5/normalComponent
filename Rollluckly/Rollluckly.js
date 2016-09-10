@@ -36,7 +36,6 @@ Rollluckly.prototype.init=function(){
             this.rollOrder.push(i);
         } 
     }
-    alert(this.rollOrder);
     //绑定事件
     this.addEvent();
 }
