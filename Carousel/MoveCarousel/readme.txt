@@ -4,4 +4,4 @@
 
 MoveCarousel.js是组件源码
 
-MoveCarousel.png是组件的图示说明(暂缺，待补)，在使用的时候直接看图即可，免得翻源码，呵呵
+MoveCarousel.png是组件的图示说明，在使用的时候直接看图即可，免得翻源码，呵呵

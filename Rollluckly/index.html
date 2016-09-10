@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tap选项卡组件</title>
+	<style type="text/css">
+		/* 抽奖转盘样式 */
+			*{margin:0;padding:0;}
+			ul,li{list-style:none;}
+			.roll-luckly{
+				width:650px;
+				overflow:hidden;
+				position:relative;
+			}
+			.roll-luckly-list{
+				width:100%;
+				overflow:hidden;
+			}
+			.roll-luckly-list li{
+				width:100px;
+				height:100px;
+				float:left;
+				margin:5px;
+				position:relative;
+			}
+			.good-mask{
+				display:none;
+				position:absolute;
+				top:0;
+				left:0;
+			}
+			.roll-luckly-list li.active .good-mask{
+				display:block;
+			}
+			.roll-luckly-list .start-btn-left{
+				margin-right:335px;
+			}
+			.luckly-btn{
+				width:320px;
+				height:100px;
+				position:absolute;
+				top:115px;
+				left:115px;
+				font-size:40px;
+				line-height:100px;
+				text-align:center;
+				background:#ccc;
+				color:#fff;
+				text-decoration:none;
+			}
+			.luckly-btn:hover{
+				background:#ddd;
+			}
+			
+		/* 抽奖转盘样式 */
+	</style>
+</head>
+<body>
+	<h3>基本抽奖转盘</h3>
+	<!-- 基本抽奖转盘 S-->
+	<div class="roll-luckly" id="roll-luckly">
+		<ul class="roll-luckly-list">
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li class="start-btn-left" roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+		</ul>
+		<a href="javascript:void(0);" class="luckly-btn" roll-start-btn>开始抽奖</a>
+	</div>
+	<!-- 基本抽奖转盘 E-->
+
+	<h3>自定义抽奖转盘(定义了切换次序，此处为圆环形)</h3>
+	<!-- 自定义抽奖转盘 S-->
+	<div class="roll-luckly" id="roll-luckly0">
+		<ul class="roll-luckly-list">
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li class="start-btn-left" roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+			<li roll-luck-list>
+				<img src="img/good.jpg" height="100" width="100">
+				<img src="img/mask.png" class="good-mask" width="100" height="100"/>
+			</li>
+		</ul>
+		<a href="javascript:void(0);" class="luckly-btn" roll-start-btn>开始抽奖</a>
+	</div>
+	<!-- 自定义抽奖转盘 E-->
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="Rollluckly.js"></script>
+	<script type="text/javascript">
+		//抽奖选项卡
+		var rollLuck=new Rollluckly('roll-luckly',{
+			'startLucklyBackFn':function(){
+				//设置中奖号码,并传入中奖奖品信息
+				rollLuck.setLucklyIndex(6,{
+					'title':'妹子一枚',
+					'desc':'价值一毛'
+				});
+			},
+			'rollLucklyBackFn':function(lucklyList,index,prizeJson){
+				//回调函数第一个参是所有参与抽奖的奖品元素，第二个参为当前中奖的索引号
+				//prizeJson是一个中奖奖品详细的信息，一般是从后台拿到的，如果
+				alert('恭喜您获得：\n'+prizeJson.title+'\n'+prizeJson.desc);
+			}
+		});
+
+		//抽奖选项卡
+		var rollLuck0=new Rollluckly('roll-luckly0',{
+			'startLucklyBackFn':function(){
+				////设置中奖号码,并传入中奖奖品信息
+				rollLuck0.setLucklyIndex(4,{
+					'title':'女汉子一枚',
+					'desc':'价值未知'
+				});
+			},
+			'rollOrderArr':[0,1,2,3,4,6,11,10,9,8,7,5],
+			'rollLucklyBackFn':function(lucklyList,index,prizeJson){
+				//回调函数第一个参是所有参与抽奖的奖品元素，第二个参为当前中奖的索引号
+				//prizeJson是一个中奖奖品详细的信息，一般是从后台拿到的，如果
+				alert('恭喜您获得：\n'+prizeJson.title+'\n'+prizeJson.desc);
+			}
+		});
+		
+	</script>
+</body>
+</html>
