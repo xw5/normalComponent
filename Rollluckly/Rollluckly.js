@@ -9,14 +9,14 @@ function Rollluckly(rollLucklyId,options){
     this.lucklyPrize=null;
     this.rollOrder=[];//滚播的次序确定
     this.setting={
-        'lucklyBtnClass':'',//开始抽奖按钮的选择器
-        'prizeHighLightClass':'active',//当前奖吕高亮的默认样式
+        'lucklyBtnClass':'',//开始抽奖按钮的选择器，默认为空
+        'prizeHighLightClass':'active',//当前奖品高亮的默认样式，默认为active
         'maxCount':3,//默认转动的圈数最大值，会在2-3间随机，至少是二圈
         'rollOrderArr':[],//用户自定义滚播次序
         'rollPlayTime':150,//高亮切换的时间间隙，单位MS
         'rollPlayTimeLast':300,//最后一轮滚播的时间间隙,也就是减速后的切换速度
         'startLucklyBackFn':null,//点击开始抽奖后触发的回调
-        'rollLucklyBackFn':null//抽完奖的回调,第一个参数为奖品DOM列表，第二个值为当前抽中的奖品编码从0开始
+        'rollLucklyBackFn':null//抽完奖的回调,第一个参数为奖品DOM列表，第二个参数为当前抽中的奖品编码从0开始,第三参为奖品信息对象
     }
     $.extend(this.setting,options);
     //初始化
