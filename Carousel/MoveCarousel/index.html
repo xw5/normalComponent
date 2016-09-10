@@ -19,6 +19,9 @@
 			overflow:hidden;
 			position:relative;
 		}
+		.carouse-lists{
+			width:1280px;
+		}
 		.carouse-list-con{
 			width:9999px;
 			position:absolute;
@@ -106,7 +109,7 @@
 	</div>
 	<!-- 基本滚动轮播 E-->
 	
-	<h3>基本轮播</h3>
+	<h3>带用户自定义滚动轮播</h3>
 
 	<!-- 带用户自定义滚动轮播 S-->
 	<div class="carouse-list" id="carouseList0">
@@ -133,7 +136,34 @@
 		<!-- 索引导航 S-->
 	</div>
 	<!-- 带用户自定义滚动轮播 E-->
+	
+	<h3>基本显示多张滚动轮播</h3>
 
+	<!-- 带用户自定义滚动轮播 S-->
+	<div class="carouse-list carouse-lists" id="carouseList1">
+
+		<!-- 主内容 S-->
+		<ul class="carouse-list-con" carouse-list>
+			<li><a href="javascript:void(0);"><img src="../images/a.jpg" height="320" width="640"></a></li>
+			<li><a href="javascript:void(0);"><img src="../images/b.jpg" height="320" width="640"></a></li>
+			<li><a href="javascript:void(0);"><img src="../images/c.jpg" height="320" width="640"></a></li>
+		</ul>
+		<!-- 主内容 E-->
+
+		<!-- 控制按钮 S-->
+		<a href="javascript:void(0);" title="上一张" class="carouse-per" carouse-ctrl>上一张</a>
+		<a href="javascript:void(0);" title="下一张" class="carouse-next" carouse-ctrl>下一张</a>
+		<!-- 控制按钮 E-->
+
+		<!-- 索引导航 S-->
+		<div class="carouse-nav" carouse-nav>
+			<a href="javascript:void(0);"></a>
+			<a href="javascript:void(0);"></a>
+			<a href="javascript:void(0);"></a>
+		</div>
+		<!-- 索引导航 S-->
+	</div>
+	<!-- 带用户自定义滚动轮播 E-->
 	<script type="text/javascript" src="../jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="MoveCarousel.js"></script>
 	<script type="text/javascript">
@@ -145,6 +175,8 @@
 			'direction':'top',
 			'carouselCtrlChange':true
 		});
+		//基本显示多张滚动轮播
+		new MoveCarousel('carouseList1');
 	</script>
 </body>
 </html>

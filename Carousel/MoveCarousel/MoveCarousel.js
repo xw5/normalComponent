@@ -1,4 +1,4 @@
-function MoveCarousel(playid,options){
+function MoveCarousel(carouselId,options){
   var This=this;
   this.moveCarousel=$('#'+playid);
   this.moveCarouselList=this.moveCarousel.find('[carouse-list]');
@@ -11,6 +11,7 @@ function MoveCarousel(playid,options){
   this.isAdd=true;//当前切换的状态是否是加状态
   this.moveStep=this.moveCarouselListChild.outerWidth();//切换的步长值
   this.moveTimer=null;
+  //回调函数返回的对象
   this.returnObj={
     'moveCarouselList':This.moveCarouselList,
     'moveCarousel':This.moveCarousel
@@ -19,12 +20,12 @@ function MoveCarousel(playid,options){
     'delayTime':3000,//自动切换的时间间隙,如果设为0就是不支持自动切换
     'playSped':500,//完成一次切换的时间，可以理解为速度
     'direction':'left',//默认'left'是左右滚动,如查传入'top'即是上下滚动
-    'highlightClass':'active',//导航默认高亮样式
-    'carouselCtrl':true,//是否有左右切换按钮
-    'carouselCtrlChange':false,//是否需要做左右控制按钮是显示隐藏切换
-    'carouseCallBack':null,//默认回调为空
+    'highlightClass':'active',//导航高亮样式,默认是active
+    'carouselCtrl':true,//是否有左右切换按钮,默认有
+    'carouselCtrlChange':false,//是否需要做左右控制按钮是显示隐藏切换，默认不做
+    'carouseCallBack':null,//回调，第一参是由滚动内容与滚动总父级组成的对象，第二参为正显示的索引号
     'carouselEvent':'click',//导航触发播放事件类型,默认为点击导航切换
-    'carouseStep':0,//用户可定义播放步长值
+    'carouseStep':0,//用户可定义播放步长值，备用
     'carouseNavText':[]//导航要显示的文本
   }
   $.extend(this.setting,options);
@@ -59,7 +60,6 @@ MoveCarousel.prototype.init=function(){
   }
   //生成导航
   if(this.setting.highlightClass!=''){
-    console.log(creatNav());
     this.moveCarouselNav.html(creatNav());
   }
   this.moveCarouselList.html(this.moveCarouselHtml+this.moveCarouselHtml);
@@ -110,7 +110,7 @@ MoveCarousel.prototype.play=function(index){
     //设置导航高亮效果
     setNav(This.nowIndex);
     //回调，第一个参是由滚动内容与滚动总父级组成的对象，第二个参为当前正显示的索引号
-    This.setting.carouseNavText(This.returnObj,This.nowIndex);
+    This.setting.carouseCallBack && This.setting.carouseCallBack(This.returnObj,This.nowIndex);
     if(This.nowIndex==0 && !This.isAdd){
         This.nowIndex=This.moveCarouselListLen;
     }
