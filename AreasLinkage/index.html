@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>省市区/县联动组件</title>
+</head>
+<body>
+
+	<h3>未设置提示值的，默认为请选择</h3>
+	<!-- 省市区联动组件 S-->
+	<select id="provinceSelect"></select>
+	<select id="citySelect"></select>
+	<select id="countySelect"></select>
+	<!-- 省市区联动组件 E-->
+
+	<h3>自定义提示值的</h3>
+	<!-- 省市区联动组件 S-->
+	<select id="provinceSelect0"></select>
+	<select id="citySelect0"></select>
+	<select id="countySelect0"></select>
+	<!-- 省市区联动组件 E-->
+
+	<h3>只需要省市数据的联动</h3>
+	<!-- 省市区联动组件 S-->
+	<select id="provinceSelect1"></select>
+	<select id="citySelect1"></select>
+	<!-- 省市区联动组件 E-->
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="AreasLinkage.js"></script>
+	<script type="text/javascript">
+		//使用默认提示
+		new AreasLinkage({
+			'provinceSelect':'provinceSelect',//省份选择框
+			'citySelect':'citySelect',//城市选择框
+			'countySelect':'countySelect'//区县选择框
+		})
+		//自定义提示
+		new AreasLinkage({
+			'provinceSelect':'provinceSelect0',//省份选择框
+			'citySelect':'citySelect0',//城市选择框
+			'countySelect':'countySelect0',//区县选择框
+			'defaultSelect':['选择省份','选择城市','选择区/县']
+		})
+		//只需要省市
+		new AreasLinkage({
+			'provinceSelect':'provinceSelect1',//省份选择框
+			'citySelect':'citySelect1',//城市选择框
+			'defaultSelect':['选择省份','选择城市']
+		})
+	</script>
+</body>
+</html>
