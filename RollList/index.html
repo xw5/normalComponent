@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚播列表组件</title>
+	<style type="text/css">
+		/* 滚播列表样式 */
+		*{
+			padding:0;
+			margin:0;
+		}
+		h3{margin:10px 0;}
+		.rollList{
+			width:300px;
+			height:24px;
+			overflow:hidden;
+			line-height:24px;
+			position:relative;
+			border:2px solid red;
+		}
+		.rolllists{
+			height:48px;
+		}
+		.rollList p{
+			width:100%;
+			height:24px;
+			font-size:14px;
+		}
+		.listmodcon{
+			width:100%;
+			position:absolute;
+			top:0;
+			left:0;
+		}
+		.listModLeft{
+			width:9999px;
+			position:absolute;
+			left:0;
+			top:0;
+		}
+		.listModLeft p{
+			width:300px;
+			float:left;
+		}
+		/* 滚播列表样式 */
+	</style>
+</head>
+<body>
+	<h3>基本上切滚播列表显示一行</h3>
+	<!-- 基本上切滚播列表显示一行 S-->
+	<div class="rollList" id="rollList">
+		<div class="listmodcon">
+			<p>一次显示一行11111111111111111111</p>
+			<p>一次显示一行22222222222222222222</p>
+			<p>一次显示一行33333333333333333333</p>
+			<p>一次显示一行44444444444444444444</p>
+		</div>
+	</div>
+	<!-- 基本上切滚播列表显示一行 E-->
+	<h3>基本上切滚播列表显示多行</h3>
+	<!-- 基本上切滚播列表显示多行 S-->
+	<div class="rollList rolllists" id="rollLists">
+		<div class="listmodcon">
+			<p>一次显示多行1111111111111111111</p>
+			<p>一次显示多行2222222222222222222</p>
+			<p>一次显示多行3333333333333333333</p>
+			<p>一次显示多行4444444444444444444</p>
+		</div>
+	</div>
+	<!-- 基本上切滚播列表显示多行 E-->
+	<h3>上切持续滚播列表</h3>
+	<!-- 上切持续滚播列表 S-->
+	<div class="rollList" id="rollListGoing">
+		<div class="listmodcon">
+			<p>持续滚播1111111111111111111</p>
+			<p>持续滚播2222222222222222222</p>
+			<p>持续滚播3333333333333333333</p>
+			<p>持续滚播4444444444444444444</p>
+		</div>
+	</div>
+	<!-- 上切持续滚播列表 E-->
+	<h3>左切滚播列表</h3>
+	<!-- 左切滚播列表 S-->
+	<div class="rollList" id="rollListLeft">
+		<div class="listModLeft">
+			<p>左切滚播列表1111111111111111111</p>
+			<p>左切滚播列表2222222222222222222</p>
+			<p>左切滚播列表3333333333333333333</p>
+			<p>左切滚播列表4444444444444444444</p>
+		</div>
+	</div>
+	<!-- 左切滚播列表 E-->
+	<h3>左切持续滚播列表</h3>
+	<!-- 左切持续滚播列表 S-->
+	<div class="rollList" id="rollListLeftGoing">
+		<div class="listModLeft">
+			<p>左切持续滚播列表1111111111111111111</p>
+			<p>左切持续滚播列表2222222222222222222</p>
+			<p>左切持续滚播列表3333333333333333333</p>
+			<p>左切持续滚播列表4444444444444444444</p>
+		</div>
+	</div>
+	<div>gggg\ud83d\ude1c\ud83d\ude14\ud83d\ude1d\ud83d\ude1a</div>
+	<!-- 左切持续滚播列表 E-->
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="RollingList.js"></script>
+	<script type="text/javascript">
+		//基本上切滚播列表显示一行
+		new RollingList("rollList");
+		//基本上切滚播列表显示多行
+		new RollingList("rollLists");
+		//上切持续滚播列表
+		new RollingList("rollListGoing",{'rollTime':0,'rollSped':80});
+		//左切滚播
+		new RollingList("rollListLeft",{'rollDirection':'left'});
+		//左切持续滚播
+		new RollingList("rollListLeftGoing",{'rollDirection':'left','rollTime':0,'rollSped':30,'rollStep':3});
+	</script>
+</body>
+</html>
