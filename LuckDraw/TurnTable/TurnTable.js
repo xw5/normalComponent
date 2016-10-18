@@ -10,7 +10,7 @@
 //param option.getAward抽奖逻辑，第一个参数为当前构造函数对象，
     //可以通过setIndex设置当前应该停留在哪个位置，再调用rotateFn开始旋转动效
 //param option.resultFn结果逻辑，中奖后逻辑处理函数第一个参数为当前构造函数对象，可以调用对外公开的方法
-function LuckDraw(option){
+function TurnTable(option){
     this.setting={
         rollCount:5,//默认旋转5圈，第六圈出中奖结果
         time:5000,//默认5秒旋转完
@@ -25,7 +25,7 @@ function LuckDraw(option){
     this.eventBind();
 }
 //事件绑定
-LuckDraw.prototype.eventBind=function(){
+TurnTable.prototype.eventBind=function(){
     var This=this;
     this.lucklyBtn.on('click',function(){
         if(!This.clicked){
@@ -35,16 +35,16 @@ LuckDraw.prototype.eventBind=function(){
     })
 }
 //设置中奖奖项并开始旋转效果
-LuckDraw.prototype.setIndex=function(index){
+TurnTable.prototype.setIndex=function(index){
     this.index=index;
     this.rotateFn();
 }
 //重置开启抽奖
-LuckDraw.prototype.resetLuck=function(){
+TurnTable.prototype.resetLuck=function(){
     this.clicked=false;
 }
 //开始旋转
-LuckDraw.prototype.rotateFn=function(){
+TurnTable.prototype.rotateFn=function(){
     var This=this;
     this.rollCon.rotate({
         angle:0,//起始角度
