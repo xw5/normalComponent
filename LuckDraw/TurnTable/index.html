@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TurnTable旋转抽奖组件</title>
+	<style type="text/css">
+		/* 抽奖转盘样式 */
+			*{margin:0;padding:0;}
+			.luckly_img{
+	            width:502px;
+	            height:502px;
+	            position:relative;
+	        }
+	        .luckly_img img{
+	            position:absolute;
+	            top:0;
+	            left:0;
+	        }
+	        .luckly_img img.pointer{
+	            left:50%;
+	            top:168px;
+	            margin-left:-56.5px;
+	        }
+		/* 抽奖转盘样式 */
+	</style>
+</head>
+<body>
+	<h3>基本抽奖旋转</h3>
+	<!--  旋转抽奖  s-->
+    <div class="luckly_img" id="luckly_img">
+        <img src="img/z.png" alt="" width="502" class="rotate_award" id="rotateAward">
+        <img src="img/pointer.png" alt="" class="pointer" id="startBtn">
+    </div>
+    <!--  旋转抽奖  e-->
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="jquery.rotate.min.js"></script>
+	<script type="text/javascript" src="LuckDraw.js"></script>
+	<script type="text/javascript">
+		//抽奖选项卡
+		//抽奖转盘实现
+        new LuckDraw({
+            startBtn:'#startBtn',
+            rollCon:'#rotateAward',
+            getAward:function(obj){
+                obj.setIndex(2);//默认设置第二个中奖
+            },
+            resultFn:function(obj){
+                alert(obj.index);//当前中奖项
+            }
+        })
+	</script>
+</body>
+</html>
