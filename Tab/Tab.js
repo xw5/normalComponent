@@ -16,14 +16,18 @@ function Tab(navid,conid,option){
         'autoPlayTime':0,//默认不自动切换,如果有传入大于0数就会自动切换，且当前时间为自动切换的时间间隔
         'tapNavListctive':"active",//导航高亮样式
         'tapConListctive':"active",//当前内容块样式
+        'init':true,//是否需要初始化显示第一个
         'tapCallback':null,//回调函数
+        'tapSucessback':function(){return true;},//是否应该触发当前切换
         'stopPlayCon':null//自动播放时鼠标移入应该停止的感应区域
     }
     $.extend(this.setting,option);
     if(this.setting.stopPlayCon!=null){
       this.tapStopCon=this.setting.stopPlayCon;
     }
-    this.initfn();
+    if(this.setting.init){
+    	this.initfn();	
+    }
 }
 //初始化方法
 Tab.prototype.initfn=function(){
@@ -37,12 +41,14 @@ Tab.prototype.initfn=function(){
     //绑定事件，触发选项卡效果
     this.tapNavList.on(this.setting.eventType,function(){
         var That=this;
-        clearTimeout(This.delayTimer);
-        This.delayTimer=setTimeout(function(){
-            This.nowIndex=$(That).index();
-            This.tapPlay();//执行切换
-            clearTimeout(This.delayTimer);
-        },bz?200:0)
+        if(this.setting.tapSuccessBack){
+        	clearTimeout(This.delayTimer);
+	        This.delayTimer=setTimeout(function(){
+	            This.nowIndex=$(That).index();
+	            This.tapPlay();//执行切换
+	            clearTimeout(This.delayTimer);
+	        },bz?200:0)
+        }
     });
     //如果传入的time参数大于0就会执行自动切换
     if(this.setting.autoPlayTime>0){
