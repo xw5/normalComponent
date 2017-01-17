@@ -1,0 +1,6 @@
+﻿这是我工作中用的数据联动组件,初始只有一个select，每选择一个select会触发下一个select的出现，依此内推。
+组件依赖jQuery,其中index.html为示例文件
+category.js是静态的模拟数据
+LinkageComponent.js是组件源码
+LinkageComponent.png是组件的图示说明，在使用的时候直接看图即可，免得翻源码，呵呵
+ajax版示例需要有真实的ajax请求下才能看到效果

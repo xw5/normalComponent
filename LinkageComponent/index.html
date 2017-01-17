@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>连动效果组件</title>
+</head>
+<body>
+    <h3>静态数据版</h3>
+    <select class="form-control input-sm" id="linkExample" data-form-input="parent_id">
+    </select>
+    <input name="parent_id" type="hidden">
+    <h3>ajax版</h3>
+    <div>
+        <select class="form-control input-sm" id="linkExample0" data-form-input="parent_idz"></select>
+        <input name="parent_idz" type="hidden">
+    </div>
+    <script src="category.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="LinkageComponent.js"></script>
+    <script>
+        var linkExample=null;
+        linkExample=new LinkageComponent({
+            linkObj:'#linkExample',
+            linkData:linkData,
+            callBack:function(val,index){
+                //index是当前正在操用的select,val是当前的值
+                console.log(val,index);
+            }
+        });
+        var linkExample0=null;
+        linkExample0=new LinkageComponent({
+            linkObj:'#linkExample0',
+            url:'getSubListByParentId',
+            id:'parent_id',
+            idz:0,
+            key:'name',
+            val:'area_id',
+            linkData:linkData,
+            callBack:function(val,index){
+                //index是当前正在操用的select,val是当前的值
+                console.log(val,index);
+            }
+        });
+    </script>
+</body>
+</html>
