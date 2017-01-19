@@ -1,18 +1,18 @@
 /*
  * @Author: xw 
  * @Date: 2017-01-05 14:28:36 
- * @Last Modified by: xw
- * @Last Modified time: 2017-01-17 16:17:31
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2017-01-19 17:18:41
  */
-//@param opt.linkObj是要初始化的select
-//@param opt.linkData是json数据源
+//@param opt.linkObj是要初始化的select的id值
+//@param opt.linkData是json数据源，如果是ajax则无需传此值
 //@param opt.url请求的url
 //@param opt.id参数id,在ajax的时候是作为参数传入,在非ajax的时候是用来做对比的参数,默认为'parent_id'
-//@param opt.idz初始值,默认为'0'
-//@param opt.key数据集key,值默认为'key'
-//@param opt.val数据集val值,默认为'val'
+//@param opt.idz是id参数的初始值,默认为'0'，以此初始值拉取初始数据填充初始的select
+//@param opt.key数据集key,值默认为'key',用来填充select的数据key值
+//@param opt.val数据集val值,默认为'val',用来填充select的数据val值
 //@param opt.callBack是每次触发select变化后触发的回调,默认第一个值是当前组件的值，第二个值为当前操作的select的索引
-//@param opt.addAttr是想要添加上去的属性值，以对象传过去即可
+//@param opt.addAttr是想要添加上去的属性值，以对象传过去即可,如想给每个select加上样式，则传{'class':'form-control'}
 //@param opt.formInput是用来提交的表单元素name,如未传则是通过初始表单上的data-form-input属性指向的name表单
 function LinkageComponent(opt){
     this.defaultSetting={
@@ -62,11 +62,11 @@ LinkageComponent.prototype.addEvent=function(obj){
             This.selectindex=This.selectindex>0 ? This.selectindex-1 : 0;
         }
         This.nextObj=$('<select></select>');
-        if(nowId==''){
+        //if(nowId==''){
             $(this).nextAll('select').remove();//清除当前操作的所有下级
-        }
+        //}
         if(This.createLink(This.nextObj)){//只有下一级有的时候才会做出操作
-            $(this).nextAll('select').remove();//清除当前操作的所有下级
+            //$(this).nextAll('select').remove();//清除当前操作的所有下级
             This.nextObj.attr(This.defaultSetting.addAttr);
             This.perObj=$(this);
             This.perObj.after(This.nextObj);
