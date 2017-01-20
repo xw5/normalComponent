@@ -1,8 +1,8 @@
 /*
  * @Author: xw 
  * @Date: 2017-01-05 14:28:36 
- * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2017-01-19 17:18:41
+ * @Last Modified by: xw
+ * @Last Modified time: 2017-01-19 20:55:12
  */
 //@param opt.linkObj是要初始化的select的id值
 //@param opt.linkData是json数据源，如果是ajax则无需传此值
@@ -36,6 +36,7 @@ function LinkageComponent(opt){
     this.nextObj=null;
     this.formInput=$('[name='+this.linkObj.attr("data-form-input")+']').length>0 ? $('[name='+this.linkObj.attr("data-form-input")+']') : $('[name='+this.defaultSetting.formInput+']');
     this.perObj=null;
+    this.resData=[];
     this.callBack=this.defaultSetting.callBack;
     this.linkArr=[this.linkObj];
     this.selectindex=0;
@@ -78,7 +79,7 @@ LinkageComponent.prototype.addEvent=function(obj){
             This.linkArr[index+1]=This.nextObj;
         }
         This.formInput.val(This.getVal());
-        This.callBack && This.callBack(This.getVal(),index);
+        This.callBack && This.callBack(This.getVal(),index,This.resData);
     })
 }
 //连动html填充
@@ -86,6 +87,7 @@ LinkageComponent.prototype.createLink=function(obj){
     var htmlStr='<option value="">--请选择--</option>',
         hasCreate=false,
         This=this;
+    this.resData=[];
     if(this.ajaxBz){
         openAjax({
             url:This.defaultSetting.url,
@@ -94,6 +96,7 @@ LinkageComponent.prototype.createLink=function(obj){
             success:function(data){
                 if(data.code=='200'){
                     hasCreate=true;
+                    This.resData=data.data;
                     $.each(data.data,function(name,value){//生成select结构
                         htmlStr+='<option value="'+value[This.val]+'">'+value[This.key]+'</option>'
                     })
@@ -103,6 +106,7 @@ LinkageComponent.prototype.createLink=function(obj){
     }else{
         $.each(this.linkData,function(name,value){//生成select结构
             if(value[This.id]===This.idz){
+                This.resData.push(value);
                 hasCreate=true;
                 htmlStr+='<option value="'+value[This.val]+'">'+value[This.key]+'</option>'
             }
