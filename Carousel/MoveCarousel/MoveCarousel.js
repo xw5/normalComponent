@@ -1,6 +1,6 @@
 function MoveCarousel(carouselId,options){
   var This=this;
-  this.moveCarousel=$('#'+playid);
+  this.moveCarousel=$('#'+carouselId);
   this.moveCarouselList=this.moveCarousel.find('[carouse-list]');
   this.moveCarouselListChild=this.moveCarouselList.children();
   this.moveCarouselListLen=this.moveCarouselListChild.length;
