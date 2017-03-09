@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>运营模块管理</title>
+    <style>
+    *{margin:0;padding:0;}
+    ul,li{list-style: none;}
+    </style>
+</head>
+
+<body>
+    <input type="text" placeholder="搜索内容" data-input-search="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su">
+    <input type="text" placeholder="搜索内容" data-input-search="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su">
+    <script src="jquery-1.11.3.min.js"></script>
+    <script src="search-tips.js"></script>
+    <script>
+        new SearchTips({
+            type:'get',
+            linkData:function(obj,fn){
+                $.ajax({
+                    type:'get',
+                    url:$(obj).attr('data-input-search'),
+                    data:{'wd':$(obj).val()},
+                    dataType:'jsonp',
+                    jsonp:'cb',
+                    success:function(data){
+                        if(data['s'] && data['s'].length>0){
+                            fn(obj,data['s']);//手动调用组件传出的函数
+                        }
+                    }
+                })
+            }
+        });
+    </script>
+</body>
+</html>
